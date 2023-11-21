@@ -52,7 +52,10 @@ jobs:
         with:
           context: . 			# dockerfile이 있는 위치랑 맞춰주자
           file: ./Dockerfile	# 빌드할 Dockerfile이 있는 디렉토리
-          platforms: linux/amd64	# 빌드할 때 사용할 환경.
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7 # 빌드할 때 사용할 환경.
           push: true				# Dockerhub 푸쉬 여부
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hell-minikube	# docker 이미지 이름
           
